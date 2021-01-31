@@ -8,5 +8,6 @@ updates = data['result']
 
 for update in updates:
     message = update['message']
-    user = message['from']
-    print(user)
+    first = message['from']['first_name']
+    last = message['from']['last_name']
+    print(first+" "+last)
