@@ -11,6 +11,8 @@ def echo_messages(*messages):
     for m in messages:
         chatid = m.chat.id
         if m.content_type == 'text':
-            text = 'uzing ' + m.text
+            text = m.text
             bot.send_message(chatid, text)
+
+
 bot.polling()
