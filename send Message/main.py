@@ -21,7 +21,7 @@ def sendMessage(txt, user_id):
 
 
 def getmessage(data):
-    txt = data[len(data)-1]['message']['text']
+    txt = data[len(data)-1]['message'].get('text', 'sticker')
     user_id = data[len(data)-1]['message']['from']['id']
     update_id = data[len(data)-1]['update_id']
     return txt, user_id, update_id
