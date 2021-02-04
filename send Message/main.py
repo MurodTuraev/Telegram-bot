@@ -1,16 +1,17 @@
 import requests
 from pprint import pprint
+import os
 
 
 def getUpdates():
-    token = '1447504211:AAGxb_lBmTjrzWVETUobnQ_zhna-wHR6mrg'
+    token = os.environ['TOKEN']
     url = f'https://api.telegram.org/bot{token}/getUpdates'
     data = requests.get(url).json()['result']
     return data
 
 
 def sendMessage(txt, user_id):
-    token = '1447504211:AAGxb_lBmTjrzWVETUobnQ_zhna-wHR6mrg'
+    token = os.environ['TOKEN']
     url = f'https://api.telegram.org/bot{token}/sendMessage'
     parametr = {
         'text': txt,
