@@ -2,15 +2,20 @@ import requests
 import json
 
 
-def sendPhoto():
+def photodog():  # random qilib rasm olish
+    url = 'https://random.dog/woof.json'
+    rasm_url = requests.get(url).json()['url']
+    return rasm_url
+
+
+def sendPhoto(url1):
     token = '1595967834:AAGzmibIK5Gz7znUyfmPhR2ZkoYYfrs6Tsg'
     url = f'https://api.telegram.org/bot{token}/sendPhoto'
-    rasm = open('https://random.dog/', 'rb')
     parametr = {
         'chat_id': 913536871,
-        # 'photo': 'https://random.dog/ff0b26d5-0ea3-4971-b2cf-9f904f301eef.jpg'
+        'photo': url1
     }
-    photo = requests.post(url, params=parametr, files={'photo': rasm})
+    photo = requests.get(url, params=parametr)
     return photo
 
 
@@ -25,3 +30,4 @@ parametr = {
     }
 }
 r = requests.post(url, json=parametr)
+sendPhoto(photodog())
