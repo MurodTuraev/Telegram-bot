@@ -58,6 +58,7 @@ while True:
         if update_id != last_update_id:
             sendPhoto(url1, chat_id)
             update_id = last_update_id
+            print(text)
     if update_id != last_update_id:
         if text == '/start':
             sendMessage(chat_id)
