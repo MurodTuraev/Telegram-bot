@@ -32,6 +32,21 @@ def sendPhoto(url1, chat_id):
     return photo
 
 
+def sendMessage(chat_id):
+    token = '1595967834:AAGzmibIK5Gz7znUyfmPhR2ZkoYYfrs6Tsg'
+    url = f'https://api.telegram.org/bot{token}/sendMessage'
+    parametr = {
+        'chat_id': chat_id,
+        'text': 'Button',
+        'reply_markup': {
+            'keyboard': [[{'text': '🐶random dog'}]],
+            'resize_keyboard': True
+        }
+    }
+    r = requests.post(url, json=parametr)
+    return r
+
+
 message_id = getUpdates()['message']['message_id']
 update_id = -1
 while True:
@@ -43,16 +58,7 @@ while True:
         if update_id != last_update_id:
             sendPhoto(url1, chat_id)
             update_id = last_update_id
-    if text == '/start':
-        if update_id != last_update_id:
-            token = '1595967834:AAGzmibIK5Gz7znUyfmPhR2ZkoYYfrs6Tsg'
-            url = f'https://api.telegram.org/bot{token}/sendMessage'
-            parametr = {
-                'chat_id': chat_id,
-                'text': 'Button',
-                'reply_markup': {
-                    'keyboard': [[{'text': '🐶random dog'}]],
-                    'resize_keyboard': True
-                }
-            }
-            r = requests.post(url, json=parametr)
+    if update_id != last_update_id:
+        if text == '/start':
+            sendMessage(chat_id)
+            update_id = last_update_id
