@@ -1,6 +1,6 @@
 import requests
 from pprint import pprint
-token = '1597735413:AAEA20RoZ_JJsQ3b4q8XvKuegECeH-i6exk'
+token = '11597735413:AAGQsKaIxz8OG4dCyMmzg3KUNOzA1_YE1cQ'
 url = f'https://api.telegram.org/bot{token}/getUpdates'
 r = requests.get(url)
 data = r.json()

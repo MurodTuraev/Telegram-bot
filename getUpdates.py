@@ -11,3 +11,5 @@ for update in updates:
     first = message['from'].get('first_name', '')
     last = message['from'].get('last_name', '')
     print(first+" "+last)
+pprint(data)
+print(r.url)
